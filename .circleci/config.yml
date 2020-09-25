@@ -17,4 +17,4 @@ workflows:
     jobs:
       - maven/test # checkout, build, test, and upload test results
       - sonar_scan:
-          context: SonarCloud
+          context: SonarCloud # this context has an environmental variable set containing key
