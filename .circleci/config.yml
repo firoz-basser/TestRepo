@@ -12,7 +12,7 @@ jobs:
     steps:
     - checkout
     - run: cat /etc/*release
-    - run: sudo apt-get install zip unzip -qy
+    - run: apt-get install zip unzip -qy
     - run: mvn clean install
     - sonarcloud/scan
 
