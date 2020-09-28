@@ -7,9 +7,11 @@ orbs:
 jobs:
   sonar_scan:
     docker:
-      - image: 'circleci/openjdk:11.0.8-jdk'
+      #- image: 'circleci/openjdk:11.0.8-jdk'
+      - image: 'adoptopenjdk/maven-openjdk11:latest'
     steps:
     - checkout
+    - mvn clean install
     - sonarcloud/scan
 
 workflows:
