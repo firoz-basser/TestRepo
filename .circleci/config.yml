@@ -11,7 +11,10 @@ jobs:
       - image: 'adoptopenjdk/maven-openjdk11:latest'
     steps:
     - checkout
-    - run: cat /etc/*release
+    - run: cat /etc/*release #get Linux release
+    # these tw0 commands to update package repository
+    - run: apt-get update
+    - run: apt-get upgrade
     - run: apt-get install zip unzip -qy
     - run: mvn clean install
     - sonarcloud/scan
