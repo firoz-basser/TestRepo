@@ -11,7 +11,7 @@ jobs:
       - image: 'adoptopenjdk/maven-openjdk11:latest'
     steps:
     - checkout
-    - mvn clean install
+    - run: mvn clean install
     - sonarcloud/scan
 
 workflows:
