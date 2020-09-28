@@ -16,7 +16,7 @@ jobs:
     - run: apt-get update
     - run: apt-get upgrade -qy
     - run: apt-get install zip unzip -qy
-    - run: mvn clean install
+    - run: mvn clean compile
     - sonarcloud/scan
 
 workflows:
