@@ -38,5 +38,7 @@ workflows:
       #- maven/test # checkout, build, test, and upload test results
       - test
       - sonar_scan:
-          context: SonarCloud # for this context need to setup environmental variable SONAR_TOKEN in CircleCI containing key generated in SonarCloud
-          requires: build_test
+          context: 
+            - SonarCloud # for this context need to setup environmental variable SONAR_TOKEN in CircleCI containing key generated in SonarCloud
+          requires: 
+            - build_test
