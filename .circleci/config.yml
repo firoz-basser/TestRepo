@@ -11,10 +11,11 @@ jobs:
       - image: 'adoptopenjdk/maven-openjdk11:latest'
     steps:
     - checkout
-    - run: cat /etc/*release #get Linux release
-    # these tw0 commands to update package repository
+    - run: cat /etc/*release #get Linux release, in this case it's Ubuntu
+    # these two commands to update package repository
     - run: apt-get update
     - run: apt-get upgrade -qy
+    # install zip and unzip packages
     - run: apt-get install zip unzip -qy
     - run: mvn clean compile
     - sonarcloud/scan
@@ -24,4 +25,5 @@ workflows:
     jobs:
       - maven/test # checkout, build, test, and upload test results
       - sonar_scan:
+          requires: maven/test
           context: SonarCloud # for this context need to setup environmental variable SONAR_TOKEN in CircleCI containing key generated in SonarCloud
